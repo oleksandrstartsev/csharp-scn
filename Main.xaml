@@ -1,0 +1,283 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="664,818" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="7">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="17">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart sap2010:Annotation.AnnotationText="Scanner.&#xD;&#xA;&#xD;&#xA;Preconditions:&#xD;&#xA;- Search.xslsx (Filter, Results)&#xD;&#xA;&#xD;&#xA;Postconditions:" DisplayName="19.6" sap:VirtualizedContainerService.HintSize="624,738" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="x:String" Default="Search.xlsx" Name="FilePath_Search" />
+      <Variable x:TypeArguments="x:Boolean" Name="flag_FilePath_Exists" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt" />
+      <Variable x:TypeArguments="x:String" Default="Filter" Name="SheetName_Excel" />
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,75</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,127.5</av:PointCollection>
+        <x:Double x:Key="Width">610</x:Double>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID6</x:Reference>
+    </Flowchart.StartNode>
+    <FlowStep x:Name="__ReferenceID6">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
+          <av:Size x:Key="ShapeSize">200,51</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">300,178.5 300,216.5</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:PathExists DisplayName="Path Exists: check if FilePath_Search Exists" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="PathExists_1" PathType="File">
+        <ui:PathExists.Exists>
+          <OutArgument x:TypeArguments="x:Boolean">
+            <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">flag_FilePath_Exists</mca:CSharpReference>
+          </OutArgument>
+        </ui:PathExists.Exists>
+        <ui:PathExists.Path>
+          <InArgument x:TypeArguments="x:String">
+            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">FilePath_Search</mca:CSharpValue>
+          </InArgument>
+        </ui:PathExists.Path>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:PathExists>
+      <FlowStep.Next>
+        <FlowDecision x:Name="__ReferenceID0" DisplayName="FilePath_Search Exists" sap:VirtualizedContainerService.HintSize="120,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+          <FlowDecision.Condition>
+            <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">flag_FilePath_Exists</mca:CSharpValue>
+          </FlowDecision.Condition>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <av:Point x:Key="ShapeLocation">240,216.5</av:Point>
+              <av:Size x:Key="ShapeSize">120,87</av:Size>
+              <av:PointCollection x:Key="FalseConnector">360,260 388,260 388,259.52 410,259.52</av:PointCollection>
+              <av:PointCollection x:Key="TrueConnector">240,260 120,260 120,284.02</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <FlowDecision.True>
+            <FlowStep x:Name="__ReferenceID2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">20,284.02</av:Point>
+                  <av:Size x:Key="ShapeSize">200,51</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">120,335.02 120,365.02 290,365.02 290,376.5</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True">
+                <ui:ExcelApplicationScope.Body>
+                  <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="336,183" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:ExcelReadRange AddHeaders="True" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="314,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1">
+                        <ui:ExcelReadRange.DataTable>
+                          <OutArgument x:TypeArguments="sd:DataTable">
+                            <mca:CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">dt</mca:CSharpReference>
+                          </OutArgument>
+                        </ui:ExcelReadRange.DataTable>
+                        <ui:ExcelReadRange.Range>
+                          <InArgument x:TypeArguments="x:String">
+                            <Literal x:TypeArguments="x:String" Value="" />
+                          </InArgument>
+                        </ui:ExcelReadRange.Range>
+                        <ui:ExcelReadRange.SheetName>
+                          <InArgument x:TypeArguments="x:String">
+                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">SheetName_Excel</mca:CSharpValue>
+                          </InArgument>
+                        </ui:ExcelReadRange.SheetName>
+                      </ui:ExcelReadRange>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ExcelApplicationScope.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ExcelApplicationScope.WorkbookPath>
+                  <InArgument x:TypeArguments="x:String">
+                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">FilePath_Search</mca:CSharpValue>
+                  </InArgument>
+                </ui:ExcelApplicationScope.WorkbookPath>
+              </ui:ExcelApplicationScope>
+              <FlowStep.Next>
+                <FlowDecision x:Name="__ReferenceID3" DisplayName="dt is not empty" sap:VirtualizedContainerService.HintSize="86,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                  <FlowDecision.Condition>
+                    <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">dt != null &amp;&amp; dt.Rows.Count &gt; 0</mca:CSharpValue>
+                  </FlowDecision.Condition>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <av:Point x:Key="ShapeLocation">247,376.5</av:Point>
+                      <av:Size x:Key="ShapeSize">86,87</av:Size>
+                      <av:PointCollection x:Key="FalseConnector">333,420 460,420 460,434.5</av:PointCollection>
+                      <av:PointCollection x:Key="TrueConnector">247,420 140,420 140,434.02</av:PointCollection>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <FlowDecision.True>
+                    <FlowStep x:Name="__ReferenceID5">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">40,434.02</av:Point>
+                          <av:Size x:Key="ShapeSize">200,51</av:Size>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:ForEachRow CurrentIndex="{x:Null}" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                        <ui:ForEachRow.Body>
+                          <ActivityAction x:TypeArguments="sd:DataRow">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,618" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="464,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info">
+                                <ui:LogMessage.Message>
+                                  <InArgument x:TypeArguments="x:Object">
+                                    <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">string.Join(",", row.ItemArray)</mca:CSharpValue>
+                                  </InArgument>
+                                </ui:LogMessage.Message>
+                              </ui:LogMessage>
+                              <If sap:VirtualizedContainerService.HintSize="464,363" sap2010:WorkflowViewState.IdRef="If_1">
+                                <If.Condition>
+                                  <InArgument x:TypeArguments="x:Boolean">
+                                    <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">row[0].ToString().Contains("dou.ua")</mca:CSharpValue>
+                                  </InArgument>
+                                </If.Condition>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="336,215" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info">
+                                      <ui:LogMessage.Message>
+                                        <InArgument x:TypeArguments="x:Object">
+                                          <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">"automating " +row[0].ToString()</mca:CSharpValue>
+                                        </InArgument>
+                                      </ui:LogMessage.Message>
+                                    </ui:LogMessage>
+                                  </Sequence>
+                                </If.Then>
+                              </If>
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:ForEachRow.Body>
+                        <ui:ForEachRow.DataTable>
+                          <InArgument x:TypeArguments="sd:DataTable">
+                            <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">dt</mca:CSharpValue>
+                          </InArgument>
+                        </ui:ForEachRow.DataTable>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:ForEachRow>
+                    </FlowStep>
+                  </FlowDecision.True>
+                  <FlowDecision.False>
+                    <FlowStep x:Name="__ReferenceID4">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">360,434.5</av:Point>
+                          <av:Size x:Key="ShapeSize">200,51</av:Size>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message: FilePath_Excel doc is empty" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
+                        <ui:LogMessage.Message>
+                          <InArgument x:TypeArguments="x:Object">
+                            <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6" xml:space="preserve">FilePath_Search  +" empty"</mca:CSharpValue>
+                          </InArgument>
+                        </ui:LogMessage.Message>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:LogMessage>
+                    </FlowStep>
+                  </FlowDecision.False>
+                </FlowDecision>
+              </FlowStep.Next>
+            </FlowStep>
+          </FlowDecision.True>
+          <FlowDecision.False>
+            <FlowStep x:Name="__ReferenceID1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">410,234.02</av:Point>
+                  <av:Size x:Key="ShapeSize">200,51</av:Size>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message: Warn FIlePath_Search" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn">
+                <ui:LogMessage.Message>
+                  <InArgument x:TypeArguments="x:Object">
+                    <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">FilePath_Search + " does not exists"</mca:CSharpValue>
+                  </InArgument>
+                </ui:LogMessage.Message>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:LogMessage>
+            </FlowStep>
+          </FlowDecision.False>
+        </FlowDecision>
+      </FlowStep.Next>
+    </FlowStep>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
+    <x:Reference>__ReferenceID3</x:Reference>
+    <x:Reference>__ReferenceID4</x:Reference>
+    <x:Reference>__ReferenceID5</x:Reference>
+  </Flowchart>
+</Activity>
